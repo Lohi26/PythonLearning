@@ -1,5 +1,5 @@
 import random
-import Day
+from Day1 import Day11
 print("Lohita"[0])
 a=random.randint(1,20)
 print(a)
