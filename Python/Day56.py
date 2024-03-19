@@ -12,6 +12,33 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
 
+random_letters=""
+for i in range(0,nr_numbers):
+    random_letters+=random.choice(letters)
+
+random_symbols=""
+for i in range(0,nr_symbols):
+    random_symbols+=random.choice(numbers)
+
+random_numbers=""
+for i in range(0,nr_numbers):
+    random_numbers+=random.choice(symbols)
+
+ans=random_letters+random_symbols+random_numbers
+print(ans)
+
+password_list = list(ans)
+random.shuffle(password_list)
+hard_password = ''.join(password_list)
+
+print(hard_password)
+
+
+string="hello"
+print(string[0])
+#it converts the string or number or tubles to iteratable list
+print(list(string))
+
 
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
