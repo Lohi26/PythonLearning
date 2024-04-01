@@ -8,7 +8,62 @@ word_list = ["aardvark", "baboon", "camel"]
 
 #TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 
-
+# stages = ['''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  / \  |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  /    |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#       |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|   |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#   |   |
+#       |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#       |
+#       |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#       |
+#       |
+#       |
+#       |
+# =========
+# ''']
 index=random.randint(0,len(word_list)-1)
 word=word_list[index]
 print(word)
@@ -16,6 +71,7 @@ print(word)
 blank=["_"]*len(word)
 boolean=True
 lives=0
+# ind=len(stages)-1
 
 while boolean:
     user=input("Guess a letter....!!\n")
@@ -27,6 +83,9 @@ while boolean:
                 boolean=True
             else:
                 boolean=False
+        # else:
+        #     print(stages[ind])
+        #     ind-=1
     lives+=1
     if lives==6:
         boolean=False
