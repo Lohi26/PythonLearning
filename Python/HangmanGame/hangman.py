@@ -1,6 +1,6 @@
 #Step 1 
 import random
-word_list = ["aardvark", "baboon", "camel"]
+word_list = ["Peacock", "Baboon", "Camel","Dogs","Triger"]
 
 #TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
 
@@ -8,88 +8,91 @@ word_list = ["aardvark", "baboon", "camel"]
 
 #TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 
-# stages = ['''
-#   +---+
-#   |   |
-#   O   |
-#  /|\  |
-#  / \  |
-#       |
-# =========
-# ''', '''
-#   +---+
-#   |   |
-#   O   |
-#  /|\  |
-#  /    |
-#       |
-# =========
-# ''', '''
-#   +---+
-#   |   |
-#   O   |
-#  /|\  |
-#       |
-#       |
-# =========
-# ''', '''
-#   +---+
-#   |   |
-#   O   |
-#  /|   |
-#       |
-#       |
-# =========''', '''
-#   +---+
-#   |   |
-#   O   |
-#   |   |
-#       |
-#       |
-# =========
-# ''', '''
-#   +---+
-#   |   |
-#   O   |
-#       |
-#       |
-#       |
-# =========
-# ''', '''
-#   +---+
-#   |   |
-#       |
-#       |
-#       |
-#       |
-# =========
-# ''']
+stages = [r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', r'''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 index=random.randint(0,len(word_list)-1)
-word=word_list[index]
-print(word)
+word=word_list[index].lower()
 
 blank=["_"]*len(word)
 boolean=True
-lives=0
-# ind=len(stages)-1
+lives=6
+ind=len(stages)-1
 
 while boolean:
     user=input("Guess a letter....!!\n")
     letter_list=list(word)
     for i in range(len(letter_list)):
         if user==letter_list[i]:
-            blank[i]=blank[i].replace("_",user)
-            if "_" in blank:
-                boolean=True
-            else:
-                boolean=False
-        # else:
-        #     print(stages[ind])
-        #     ind-=1
-    lives+=1
-    if lives==6:
+            blank[i]=user
+    if user not in word:
+        print(stages[ind])
+        ind-=1
+        lives-=1
+        if lives==0:
+            print(stages[ind])
+            boolean=False
+            print("You lose the game")
+    print("".join(blank))
+    if "_" not in blank:
         boolean=False
-print(blank)
+        print("You won the game")
+
+
         
 
 
