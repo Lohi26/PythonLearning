@@ -21,15 +21,14 @@
 
 
 # Write your code below this line 👇
-
+import math
 def paint_calc(height,width,cover):
     # print(height,width,cover)
-    ans=(height*width)+cover
-    # print(ans)
-    if ans<2:
-        return 0
-    else:
-        return ans
+    ans=(height*width)/cover
+    print(ans)
+    ans=math.ceil(ans)
+    print(ans)
+    return ans
 
 
 # Write your code above this line 👆
